@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id="result"></div>
+<script>
+    const chaId = Math.floor((Math.random() * 100) + 1);
+    document.getElementById("result").innerHTML += "chaId: " + chaId+ "<br>";
+    const evtSource = new EventSource("//localhost:8080/chat/start?chatId=" + chaId, { withCredentials: true } );
+    evtSource.onopen = function(){
+        document.getElementById("result").innerHTML += "Connection is on"+ "<br>";
+    };
+    evtSource.onmessage = function(event) {
+        document.getElementById("result").innerHTML += event.data + "<br>";
+    };
+</script>
+</body>
+</html>
