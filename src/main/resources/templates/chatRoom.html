@@ -7,9 +7,8 @@
 <body>
 <div id="result"></div>
 <script>
-    const chaId = Math.floor((Math.random() * 100) + 1);
-    document.getElementById("result").innerHTML += "chaId: " + chaId+ "<br>";
-    const evtSource = new EventSource("//localhost:8080/chat/start?chatId=" + chaId, { withCredentials: true } );
+    document.getElementById("result").innerHTML += "Welcome to chat room: <br>";
+    const evtSource = new EventSource("//localhost:8080/chat/start", { withCredentials: true } );
     evtSource.onopen = function(){
         document.getElementById("result").innerHTML += "Connection is on"+ "<br>";
     };
