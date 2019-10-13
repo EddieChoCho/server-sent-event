@@ -8,7 +8,7 @@
 <div id="result"></div>
 <script>
     document.getElementById("result").innerHTML += "Welcome to chat room: <br>";
-    const evtSource = new EventSource("//localhost:8080/chat/start", { withCredentials: true } );
+    const evtSource = new EventSource("chat/start", { withCredentials: true } );
     evtSource.onopen = function(){
         document.getElementById("result").innerHTML += "Connection is on"+ "<br>";
     };
